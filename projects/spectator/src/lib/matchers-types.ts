@@ -1,3 +1,5 @@
+type TextCallback = (value: string) => boolean;
+
 declare namespace jasmine {
   interface Matchers<T> {
     toExist(): boolean;
@@ -14,11 +16,11 @@ declare namespace jasmine {
 
     toContainProperty(prop: string | object, val?: string): boolean;
 
-    toHaveText(text: string | string[] | Function, exact?: boolean): boolean;
+    toHaveText(text: string | string[] | TextCallback, exact?: boolean): boolean;
 
-    toContainText(text: string | string[] | Function, exact?: boolean): boolean;
+    toContainText(text: string | string[] | TextCallback, exact?: boolean): boolean;
 
-    toHaveExactText(text: string | string[] | Function): boolean;
+    toHaveExactText(text: string | string[] | TextCallback): boolean;
 
     toHaveValue(value: string | string[]): boolean;
 
